@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="runner.testRunnerAPI" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-04-04T14:44:25" hostname="WIN-UM4P54D4RF6" time="10.197">
+  <properties/>
+  <testcase name="Test get list user normal" classname="runner.testRunnerAPI" time="7.428"/>
+  <testcase name="Test create new user normal" classname="runner.testRunnerAPI" time="0.692"/>
+  <testcase name="Test delete user normal" classname="runner.testRunnerAPI" time="1.01"/>
+  <testcase name="Test update user normal" classname="runner.testRunnerAPI" time="1.062"/>
+  <system-out><![CDATA[Before All
+
+@api
+Scenario: Test get list user normal                                          # src/test/java/features/api.feature:4
+Before Test
+  Given prepare url for "USER_GOREST"                                        # stepDef.ApiStep.prepareUrlFor(java.lang.String)
+  And hit api get list users                                                 # stepDef.ApiStep.hitApi()
+  Then validation status code is equals 200                                  # stepDef.ApiStep.validationStatusCodeIsEquals(int)
+  Then validation response body get list users                               # stepDef.ApiStep.validationResponseBodyGetListUsers()
+  Then validation response json with JSONSchema "get_list_users_normal.json" # stepDef.ApiStep.validationResponseJsonWithJSONSchema(java.lang.String)
+After Test
+
+@api
+Scenario: Test create new user normal                                          # src/test/java/features/api.feature:12
+Before Test
+  Given prepare url for "USER_GOREST"                                          # stepDef.ApiStep.prepareUrlFor(java.lang.String)
+{"id":7813425,"name":"Satria Refdi Ardiguna","email":"jX0oytTglT@testdata.com","gender":"male","status":"active"}
+  And hit api post create new users                                            # stepDef.ApiStep.hitApiPostCreateNewUsers()
+  Then validation status code is equals 201                                    # stepDef.ApiStep.validationStatusCodeIsEquals(int)
+  Then validation response body post create new user                           # stepDef.ApiStep.validationResponseBodyPostCreateNewUser()
+  Then validation response json with JSONSchema "post_create_user_normal.json" # stepDef.ApiStep.validationResponseJsonWithJSONSchema(java.lang.String)
+After Test
+
+@api
+Scenario: Test delete user normal                    # src/test/java/features/api.feature:20
+Before Test
+  Given prepare url for "USER_GOREST"                # stepDef.ApiStep.prepareUrlFor(java.lang.String)
+{"id":7813426,"name":"Satria Refdi Ardiguna","email":"oj7HwIzS2i@testdata.com","gender":"male","status":"active"}
+  And hit api post create new users                  # stepDef.ApiStep.hitApiPostCreateNewUsers()
+  Then validation status code is equals 201          # stepDef.ApiStep.validationStatusCodeIsEquals(int)
+  Then validation response body post create new user # stepDef.ApiStep.validationResponseBodyPostCreateNewUser()
+  And hit api delete new                             # stepDef.ApiStep.hitApiDeleteNew()
+  Then validation status code is equals 204          # stepDef.ApiStep.validationStatusCodeIsEquals(int)
+After Test
+
+@api
+Scenario: Test update user normal                    # src/test/java/features/api.feature:29
+Before Test
+  Given prepare url for "USER_GOREST"                # stepDef.ApiStep.prepareUrlFor(java.lang.String)
+{"id":7813427,"name":"Satria Refdi Ardiguna","email":"pCTFTASPir@testdata.com","gender":"male","status":"active"}
+  And hit api post create new users                  # stepDef.ApiStep.hitApiPostCreateNewUsers()
+  Then validation status code is equals 201          # stepDef.ApiStep.validationStatusCodeIsEquals(int)
+  Then validation response body post create new user # stepDef.ApiStep.validationResponseBodyPostCreateNewUser()
+  And hit api update data                            # stepDef.ApiStep.hitApiUpdateData()
+  Then validation status code is equals 200          # stepDef.ApiStep.validationStatusCodeIsEquals(int)
+  Then validation response body update user          # stepDef.ApiStep.validationResponseBodyUpdateUser()
+After Test
+After All
+]]></system-out>
+  <system-err><![CDATA[SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+]]></system-err>
+</testsuite>

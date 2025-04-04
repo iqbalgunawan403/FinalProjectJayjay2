@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - testRunnerAPI</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>testRunnerAPI</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/runner.html">runner</a> &gt; testRunnerAPI</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">4</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">10.192s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">Test create new user normal</td>
+<td class="success">0.692s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Test delete user normal</td>
+<td class="success">1.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Test get list user normal</td>
+<td class="success">7.428s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Test update user normal</td>
+<td class="success">1.062s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>Before All
+
+@api
+Scenario: Test get list user normal                                          # src/test/java/features/api.feature:4
+Before Test
+  Given prepare url for &quot;USER_GOREST&quot;                                        # stepDef.ApiStep.prepareUrlFor(java.lang.String)
+  And hit api get list users                                                 # stepDef.ApiStep.hitApi()
+  Then validation status code is equals 200                                  # stepDef.ApiStep.validationStatusCodeIsEquals(int)
+  Then validation response body get list users                               # stepDef.ApiStep.validationResponseBodyGetListUsers()
+  Then validation response json with JSONSchema &quot;get_list_users_normal.json&quot; # stepDef.ApiStep.validationResponseJsonWithJSONSchema(java.lang.String)
+After Test
+
+@api
+Scenario: Test create new user normal                                          # src/test/java/features/api.feature:12
+Before Test
+  Given prepare url for &quot;USER_GOREST&quot;                                          # stepDef.ApiStep.prepareUrlFor(java.lang.String)
+{&quot;id&quot;:7813425,&quot;name&quot;:&quot;Satria Refdi Ardiguna&quot;,&quot;email&quot;:&quot;jX0oytTglT@testdata.com&quot;,&quot;gender&quot;:&quot;male&quot;,&quot;status&quot;:&quot;active&quot;}
+  And hit api post create new users                                            # stepDef.ApiStep.hitApiPostCreateNewUsers()
+  Then validation status code is equals 201                                    # stepDef.ApiStep.validationStatusCodeIsEquals(int)
+  Then validation response body post create new user                           # stepDef.ApiStep.validationResponseBodyPostCreateNewUser()
+  Then validation response json with JSONSchema &quot;post_create_user_normal.json&quot; # stepDef.ApiStep.validationResponseJsonWithJSONSchema(java.lang.String)
+After Test
+
+@api
+Scenario: Test delete user normal                    # src/test/java/features/api.feature:20
+Before Test
+  Given prepare url for &quot;USER_GOREST&quot;                # stepDef.ApiStep.prepareUrlFor(java.lang.String)
+{&quot;id&quot;:7813426,&quot;name&quot;:&quot;Satria Refdi Ardiguna&quot;,&quot;email&quot;:&quot;oj7HwIzS2i@testdata.com&quot;,&quot;gender&quot;:&quot;male&quot;,&quot;status&quot;:&quot;active&quot;}
+  And hit api post create new users                  # stepDef.ApiStep.hitApiPostCreateNewUsers()
+  Then validation status code is equals 201          # stepDef.ApiStep.validationStatusCodeIsEquals(int)
+  Then validation response body post create new user # stepDef.ApiStep.validationResponseBodyPostCreateNewUser()
+  And hit api delete new                             # stepDef.ApiStep.hitApiDeleteNew()
+  Then validation status code is equals 204          # stepDef.ApiStep.validationStatusCodeIsEquals(int)
+After Test
+
+@api
+Scenario: Test update user normal                    # src/test/java/features/api.feature:29
+Before Test
+  Given prepare url for &quot;USER_GOREST&quot;                # stepDef.ApiStep.prepareUrlFor(java.lang.String)
+{&quot;id&quot;:7813427,&quot;name&quot;:&quot;Satria Refdi Ardiguna&quot;,&quot;email&quot;:&quot;pCTFTASPir@testdata.com&quot;,&quot;gender&quot;:&quot;male&quot;,&quot;status&quot;:&quot;active&quot;}
+  And hit api post create new users                  # stepDef.ApiStep.hitApiPostCreateNewUsers()
+  Then validation status code is equals 201          # stepDef.ApiStep.validationStatusCodeIsEquals(int)
+  Then validation response body post create new user # stepDef.ApiStep.validationResponseBodyPostCreateNewUser()
+  And hit api update data                            # stepDef.ApiStep.hitApiUpdateData()
+  Then validation status code is equals 200          # stepDef.ApiStep.validationStatusCodeIsEquals(int)
+  Then validation response body update user          # stepDef.ApiStep.validationResponseBodyUpdateUser()
+After Test
+After All
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.10</a> at Apr 4, 2025, 9:44:37 PM</p>
+</div>
+</div>
+</body>
+</html>
