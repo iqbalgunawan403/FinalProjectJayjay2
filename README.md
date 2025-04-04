@@ -1,4 +1,4 @@
-![Screenshot_4](https://github.com/user-attachments/assets/1a9543df-d430-47d2-914f-bcefac6a04b3)Final Project : membuat Web UI Automation dan API Automation dengan requirement
+Final Project : membuat Web UI Automation dan API Automation dengan requirement
 
 Git & GitHub untuk repository
 Bahasa pemograman menggunakan Java
